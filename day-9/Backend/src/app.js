@@ -1,10 +1,13 @@
 const express = require("express")
 const noteModel = require("./models/note.model")
 const cors = require("cors")
+const path = require("path")
 
 const app = express()
+
 app.use(cors())
 app.use(express.json())
+app.use(express.static("./public"))
 
 /* Post/api/notes
     - create new note and save data to mongodb 
@@ -68,5 +71,9 @@ app.patch('/api/notes/:id', async (req,res)=>{
         message:"Note update successfully"
     })
 })
+
+console.log(__dirname)
+
+
 
 module.exports = app
