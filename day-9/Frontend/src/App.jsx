@@ -5,7 +5,7 @@ function App() {
   const [notes, setNotes] = useState([]);
 
   function fetchNotes(){
-     axios.get("http://localhost:3000/api/notes").then((res) => {
+     axios.get("https://backend-m8p1.onrender.com/api/notes").then((res) => {
       setNotes(res.data.notes);
     });
   }
@@ -21,7 +21,7 @@ function handleSubmit(e) {
 
   console.log(title.value, description.value);
   
-  axios.post("http://localhost:3000/api/notes",{
+  axios.post("https://backend-m8p1.onrender.com/api/notes",{
     title:title.value,
     description:description.value
   })
@@ -33,7 +33,7 @@ function handleSubmit(e) {
 }
 
 function handleDeleteNote(noteId){
- axios.delete("http://localhost:3000/api/notes/"+noteId)
+ axios.delete("https://backend-m8p1.onrender.com/api/notes/"+noteId)
  .then(res=>{
   console.log(res.data)
   fetchNotes()
